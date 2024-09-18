@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UD01_2_AnimalsList</string>
+    <string name="send">SEND</string>
+    <string name="selectAnimal">Select animals</string>
+</resources>

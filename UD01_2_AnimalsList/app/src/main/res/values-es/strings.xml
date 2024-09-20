@@ -3,6 +3,11 @@
     <string name="app_name">UD01_2_AnimalsList</string>
     <string name="send">ENVIAR</string>
     <string name="selectAnimal">Selecciona animales</string>
+    <string-array name="listAnimals">
+        <item>Gato</item>
+        <item>Perro</item>
+        <item>Pájaro</item>
+    </string-array>
 
 
 

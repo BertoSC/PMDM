@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     // nombre, tipo de dato entre parantesis, podemos poner un return con =
-    // en este caso el código es un when
+    // en este caso el código es un when hola
     fun getAnimalKind(id: Long) = when (id) {
         0L -> listOf("Lareta", "Tali")
         1L -> listOf("Pastor Alemán", "Chiguagua")

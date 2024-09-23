@@ -11,9 +11,23 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
     //lateinit se usa para indicar que se iniciará la variable creada más tarde
+    val RUNNING_KEY = "RUNNING"
+    val OFFSET_KEY= "offset"
+    val BASE_KEY= "base"
+
     lateinit var chrono: Chronometer
     var running = false
     var offset = 0L
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        //guarda las variables cuando se cambia de estado, por ejemplo, cuando entra llamada, o se gira la pantalla
+        outState.putBoolean(RUNNING_KEY, running)
+        outState.putLong(OFFSET_KEY, offset)
+        outState.putLong(BASE_KEY, chrono.base)
+        super.onSaveInstanceState(outState)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,6 +38,20 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         chrono = findViewById<Chronometer>(R.id.chrTemporizador) // buscamos por id
+
+        if (savedInstanceState!=null){
+            offset = savedInstanceState.getLong(OFFSET_KEY)
+            running= savedInstanceState.getBoolean(RUNNING_KEY)
+            if (running){
+                chrono.base = savedInstanceState.getLong(BASE_KEY)
+                chrono.start()
+            }
+
+
+        }
+
+        // BOTONES BÁSICOS DE LA APP (START, PAUSE, RESTART)
+
         val btnStart= findViewById<Button>(R.id.btnStart)
         btnStart.setOnClickListener{
             if (!running){

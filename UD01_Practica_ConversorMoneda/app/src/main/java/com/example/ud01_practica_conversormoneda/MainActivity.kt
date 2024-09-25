@@ -1,6 +1,7 @@
 package com.example.ud01_practica_conversormoneda
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +17,13 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+       var dolar=findViewById<EditText>(R.id.enterDolar)
+       var euro=findViewById<EditText>(R.id.exitEuro)
+
+
+
+
     }
 
 

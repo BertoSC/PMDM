@@ -1,6 +1,7 @@
 package com.example.ud01_3_chronos
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.os.SystemClock
 import android.widget.Button
 import android.widget.Chronometer
@@ -18,6 +19,52 @@ class MainActivity : AppCompatActivity() {
     lateinit var chrono: Chronometer
     var running = false
     var offset = 0L
+
+   //APP pasa a segundo plano
+    override fun onStop() {
+        if(running) {
+            offset = SystemClock.elapsedRealtime() - chrono.base
+            chrono.stop()
+
+        }
+        super.onStop()
+    }
+    //APP vuelve a primer plano
+    override fun onRestart(){
+        if (running){
+            chrono.base = SystemClock.elapsedRealtime() - offset
+            chrono.start()
+
+        }
+        super.onRestart()
+
+    }
+
+
+    //PIERDE EL FOCO
+
+    override fun onPause() {
+        if(running) {
+            offset = SystemClock.elapsedRealtime() - chrono.base
+            chrono.stop()
+
+        }
+
+        super.onPause()
+    }
+
+    //RECUPERA EL FOCO
+
+    override fun onResume() {
+        if (running){
+            chrono.base = SystemClock.elapsedRealtime() - offset
+            chrono.start()
+
+        }
+        super.onResume()
+    }
+
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         //guarda las variables cuando se cambia de estado, por ejemplo, cuando entra llamada, o se gira la pantalla
@@ -37,6 +84,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         chrono = findViewById<Chronometer>(R.id.chrTemporizador) // buscamos por id
 
         if (savedInstanceState!=null){
@@ -45,6 +93,8 @@ class MainActivity : AppCompatActivity() {
             if (running){
                 chrono.base = savedInstanceState.getLong(BASE_KEY)
                 chrono.start()
+            }else{
+                chrono.base = SystemClock.elapsedRealtime()-offset
             }
 
 

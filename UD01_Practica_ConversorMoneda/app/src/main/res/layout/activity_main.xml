@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:gravity="center"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<TextView
+    android:id="@+id/textIntro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginBottom="50dp"
+
+    android:text="@string/intro"/>
+
+<EditText
+    android:id="@+id/enterDolar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="30dp"
+    />
+<Button
+    android:id="@+id/btnConvert"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="30dp"
+    android:text="@string/convert"/>
+
+<EditText
+    android:id="@+id/exitEuro"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    />
+
+
+
+</LinearLayout>

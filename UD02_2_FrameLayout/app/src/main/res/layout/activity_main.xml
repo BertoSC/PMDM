@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Frame Layoutpermite superponer elementos
+atributo src> para meter imágenes (WEBP recomendado )
+Las imágenes van en la carpeta drawable (se puede arrastrar directamente)
+El programa puede convertir cualquiera a WEBP, dando click derecho sobre la imagen en jpg (por ej)
+-->
+<FrameLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".MainActivity"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/iceberg"/>
+
+    <ImageView
+    android:layout_width="wrap_content"
+
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal|bottom"
+
+    android:src="@drawable/tux"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frio"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        />
+
+
+
+</FrameLayout>

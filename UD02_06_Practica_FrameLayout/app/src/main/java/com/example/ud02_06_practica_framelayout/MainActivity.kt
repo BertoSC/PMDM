@@ -1,8 +1,6 @@
-package com.example.udo2_5_practica_linearlayout
+package com.example.ud02_06_practica_framelayout
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,17 +16,5 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        var btnLlamar = findViewById<Button>(R.id.btnLlamar)
-        var texto = findViewById<TextView>(R.id.llamando)
-        var nombre= findViewById<TextView>(R.id.contacto1).text
-
-        btnLlamar.setOnClickListener{
-            texto.setText(getString(R.string.llamando).plus(" "+nombre))
-
-
-        }
     }
-
-
 }

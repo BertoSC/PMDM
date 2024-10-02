@@ -2,4 +2,7 @@
     <string name="app_name">UDO2_5_Practica_LinearLayout</string>
     <string name="contact1">Juan Pérez</string>
     <string name="llamar">LLAMAR</string>
+    <string name="telefono1">660905050</string>
+    <string name="llamando">Llamando a </string>
+
 </resources>

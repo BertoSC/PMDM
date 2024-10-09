@@ -21,13 +21,14 @@
         <action
             android:id="@+id/action_fragmentMessage_to_fragmentEncrypt"
             app:destination="@id/fragmentEncrypt" />
-        <argument
-            android:name="message"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentEncrypt"
         android:name="com.example.ud03_01_fragmentencrypt.FragmentEncrypt"
         android:label="fragment_encrypt"
-        tools:layout="@layout/fragment_encrypt" />
+        tools:layout="@layout/fragment_encrypt" >
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </fragment>
 </navigation>

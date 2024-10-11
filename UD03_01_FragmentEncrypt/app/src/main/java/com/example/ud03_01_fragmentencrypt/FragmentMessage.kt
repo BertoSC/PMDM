@@ -27,7 +27,7 @@ class FragmentMessage : Fragment() {
 
             view.findNavController()
                 .navigate(FragmentMessageDirections.actionFragmentMessageToFragmentEncrypt(
-                    (view.findViewById<EditText>(R.id.text_secretMsg).toString())))
+                    (view.findViewById<EditText>(R.id.text_secretMsg).text.toString())))
         }
         return view
 

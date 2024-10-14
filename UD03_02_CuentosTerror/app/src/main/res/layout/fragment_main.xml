@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+
+    >
+
+    <ImageView
+        android:id="@+id/imgSamain"
+        android:layout_width="wrap_content"
+        android:layout_height="308dp"
+        android:src="@drawable/samain"
+        android:gravity="top"/>
+
+    <TextView
+        android:id="@+id/textviewIntroduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/introduceName"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:textColor="@color/orange"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+     />
+
+    <EditText
+        android:id="@+id/editWhatName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="18dp"
+        android:layout_gravity="center"
+        android:hint="@string/nameHere"
+        android:padding="20dp"
+
+        />
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/orange"/>
+
+
+
+</LinearLayout>

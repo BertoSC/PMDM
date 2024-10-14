@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">UD03_02_CuentosTerror</string>
+    <string name="introduceName">Introduce your name</string>
+    <string name="nameHere">What is your name?</string>
+    <string name="next">NEXT</string>
+    <string name="selectTheme">Select your theme</string>
+    <string name="hauntedHouse">Haunted house</string>
+    <string name="cursedWood">Cursed wood</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

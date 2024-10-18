@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.ud03_02_cuentosterror.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_themeFragment"
+            app:destination="@id/themeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/themeFragment"
+        android:name="com.example.ud03_02_cuentosterror.ThemeFragment"
+        android:label="fragment_theme"
+        tools:layout="@layout/fragment_theme" >
+        <action
+            android:id="@+id/action_themeFragment_to_tale1Fragment"
+            app:destination="@id/tale1Fragment" />
+        <action
+            android:id="@+id/action_themeFragment_to_taleFragment2"
+            app:destination="@id/taleFragment2" />
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/tale1Fragment"
+        android:name="com.example.ud03_02_cuentosterror.Tale1Fragment"
+        android:label="Tale1Fragment" >
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/taleFragment2"
+        android:name="com.example.ud03_02_cuentosterror.TaleFragment2"
+        android:label="TaleFragment2" >
+        <argument
+            android:name="nombre"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -6,6 +6,6 @@
     <string name="selectTheme">Select your theme</string>
     <string name="hauntedHouse">Haunted house</string>
     <string name="cursedWood">Cursed wood</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hauntedHouseTale">Haunted house</string>
+    <string name="cursedWoodTale">Cursed wood</string>
 </resources>

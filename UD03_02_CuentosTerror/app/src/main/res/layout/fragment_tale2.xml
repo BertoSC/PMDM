@@ -5,33 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/fragmentTale1">
+    android:id="@+id/fragmentTale2">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/hauntedHause"
-        android:text="@string/hauntedHouseTale"
+        android:id="@+id/cursedWood"
+        android:text="@string/cursedWoodTale"
         android:textSize="35sp"
         android:textStyle="bold"
         android:textColor="@color/orange"
         android:layout_gravity="center"
         android:layout_marginTop="25dp"
-    />
+        />
 
     <ImageView
-        android:id="@+id/fragmentTale1img"
-        android:src="@drawable/casa"
+        android:id="@+id/fragmentTale2img"
+        android:src="@drawable/bosque"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_gravity="top"
         android:scaleType="centerCrop"
         android:layout_marginTop="25dp"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewTale1" />
 
 
 </LinearLayout>

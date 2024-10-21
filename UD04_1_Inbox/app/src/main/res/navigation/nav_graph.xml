@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/inboxStartFragment">
+
+    <fragment
+        android:id="@+id/inboxStartFragment"
+        android:name="com.example.ud04_1_inbox.InboxStartFragment"
+        android:label="InboxStartFragment" />
+    <fragment
+        android:id="@+id/sentItemsFragment"
+        android:name="com.example.ud04_1_inbox.SentItemsFragment"
+        android:label="SentItemsFragment" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.ud04_1_inbox.HelpFragment"
+        android:label="HelpFragment" />
+</navigation>

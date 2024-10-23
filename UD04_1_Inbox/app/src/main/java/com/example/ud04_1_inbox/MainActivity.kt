@@ -11,9 +11,11 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +36,16 @@ class MainActivity : AppCompatActivity() {
      //controlador de navegación
      val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
      val navController = navHostFragment.navController
+     val appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
 
-        tool.setupWithNavController(navController)
+      tool.setupWithNavController(navController, appBarConfiguration)
+
+        // para la barra de navegacion bottom
+        val bottombar = findViewById<BottomNavigationView>(R.id.bottomBar)
+        bottombar.setupWithNavController(navController)
 
     }
+
 
     //dice cuando una de las opciones es seleccionada, qué vas a hacer
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

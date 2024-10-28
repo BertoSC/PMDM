@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -16,6 +17,7 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,16 +35,30 @@ class MainActivity : AppCompatActivity() {
     // le decimos que es la toolbar por defecto
      setSupportActionBar(tool)
 
+    // recuperar el drawer layout
+
+    val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+
      //controlador de navegación
      val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
      val navController = navHostFragment.navController
-     val appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
+     val appBarConfiguration = AppBarConfiguration.Builder(navController.graph)
 
-      tool.setupWithNavController(navController, appBarConfiguration)
+        //indico que hay un elemento openable
+        appBarConfiguration.setOpenableLayout(drawerLayout)
+        val appBarBuilder= appBarConfiguration.build()
 
-        // para la barra de navegacion bottom
+
+        //toolbar con controller
+         tool.setupWithNavController(navController, appBarBuilder)
+
+        // para hacer la barra bottom navegable, recuperamos la vista especifica y le asignamos el controlador
         val bottombar = findViewById<BottomNavigationView>(R.id.bottomBar)
         bottombar.setupWithNavController(navController)
+
+        // para hacer la barra lateral navegable, recuperamos la vista especifica y le asignamos el controlador
+        val navSide = findViewById<NavigationView>(R.id.nav_side)
+        navSide.setupWithNavController(navController)
 
     }
 

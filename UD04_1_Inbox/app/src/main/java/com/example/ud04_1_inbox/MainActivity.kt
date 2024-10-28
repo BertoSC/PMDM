@@ -42,11 +42,11 @@ class MainActivity : AppCompatActivity() {
      //controlador de navegación
      val navHostFragment = supportFragmentManager.findFragmentById(R.id.container_fragment) as NavHostFragment
      val navController = navHostFragment.navController
-     val appBarConfiguration = AppBarConfiguration.Builder(navController.graph)
+     val appBarConfig = AppBarConfiguration.Builder(navController.graph)
 
         //indico que hay un elemento openable
-        appBarConfiguration.setOpenableLayout(drawerLayout)
-        val appBarBuilder= appBarConfiguration.build()
+        appBarConfig.setOpenableLayout(drawerLayout)
+        val appBarBuilder= appBarConfig.build()
 
 
         //toolbar con controller

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">UD5_1_JustIT</string>
+    <string name="type">Añade tu pedido</string>
+    <string name="send">ENVÍO</string>
+    <string name="burguer1">Hamburguesa completa</string>
+    <string name="burguer2">Hamburguesa Bacon</string>
+    <string name="burguer3">Super Pollo</string>
+    <string name="cheese">Cheese</string>
+    <string name="tomato">Tomato</string>
+    <string name="alert_select_type">Select a type</string>
+    <string name="burguer_selected">Has seleccionado la hamburguesa </string>
+
+</resources>

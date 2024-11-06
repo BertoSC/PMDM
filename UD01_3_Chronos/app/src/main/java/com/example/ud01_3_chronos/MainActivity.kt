@@ -9,13 +9,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.ud01_3_chronos.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     //lateinit se usa para indicar que se iniciará la variable creada más tarde
     val RUNNING_KEY = "RUNNING"
     val OFFSET_KEY= "offset"
     val BASE_KEY= "base"
-
+    lateinit var binding: ActivityMainBinding
     lateinit var chrono: Chronometer
     var running = false
     var offset = 0L
@@ -25,21 +26,18 @@ class MainActivity : AppCompatActivity() {
         if(running) {
             offset = SystemClock.elapsedRealtime() - chrono.base
             chrono.stop()
-
         }
         super.onStop()
     }
+
     //APP vuelve a primer plano
     override fun onRestart(){
         if (running){
             chrono.base = SystemClock.elapsedRealtime() - offset
             chrono.start()
-
         }
         super.onRestart()
-
     }
-
 
     //PIERDE EL FOCO
 
@@ -49,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             chrono.stop()
 
         }
-
         super.onPause()
     }
 
@@ -59,12 +56,9 @@ class MainActivity : AppCompatActivity() {
         if (running){
             chrono.base = SystemClock.elapsedRealtime() - offset
             chrono.start()
-
         }
         super.onResume()
     }
-
-
 
     override fun onSaveInstanceState(outState: Bundle) {
         //guarda las variables cuando se cambia de estado, por ejemplo, cuando entra llamada, o se gira la pantalla
@@ -78,14 +72,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main) //recuerda: hasta que se ejecute esta línea no se carga
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        //setContentView(R.layout.activity_main) //recuerda: hasta que se ejecute esta línea no se carga
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        chrono = findViewById<Chronometer>(R.id.chrTemporizador) // buscamos por id
+        //igualar a todo el binding lo que estoy pintando en el mainactivity
+
+
+        chrono = binding.chrTemporizador
+        //chrono = findViewById<Chronometer>(R.id.chrTemporizador) // buscamos por id
 
         if (savedInstanceState!=null){
             offset = savedInstanceState.getLong(OFFSET_KEY)
@@ -96,13 +98,11 @@ class MainActivity : AppCompatActivity() {
             }else{
                 chrono.base = SystemClock.elapsedRealtime()-offset
             }
-
-
         }
 
         // BOTONES BÁSICOS DE LA APP (START, PAUSE, RESTART)
 
-        val btnStart= findViewById<Button>(R.id.btnStart)
+        val btnStart= binding.btnStart
         btnStart.setOnClickListener{
             if (!running){
                 chrono.base = SystemClock.elapsedRealtime() - offset//le decimos que acceda al reloj sistema en tiempo real
@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                 running = true
             }
         }
-        val btnStop = findViewById<Button>(R.id.btnPause)
+        val btnStop = binding.btnPause
         btnStop.setOnClickListener{
             if (running){
                 offset = SystemClock.elapsedRealtime()-chrono.base
@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val btnRestart = findViewById<Button>(R.id.btnRestart)
+        val btnRestart = binding.btnRestart
         btnRestart.setOnClickListener{
             chrono.base = SystemClock.elapsedRealtime()
             offset = 0L

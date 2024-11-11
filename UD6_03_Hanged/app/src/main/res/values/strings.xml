@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UD6_03_Hanged</string>
+
+    <string name="hint_try">Prueba suerte con la palabra</string>
+    <string name="btn_next">SIGUIENTE</string>
+    <string name="btn_restart">RESTART</string>
+</resources>

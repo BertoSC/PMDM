@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.ud6_03_hanged.databinding.FragmentGameBinding
 
@@ -16,7 +17,6 @@ class GameFragment : Fragment() {
 
     val model: GameViewModel by viewModels(
         ownerProducer = {this.requireActivity()}
-
     )
 
     override fun onCreateView(
@@ -31,12 +31,23 @@ class GameFragment : Fragment() {
 
             var attempt = binding.editText.text[0]
             model.guess(attempt.uppercaseChar())
-            var textoShow = binding.secretWord.setText(model.targetWordHidden)
+            var textoShow = binding.secretWord.setText(model.targetWordHidden.toString())
+            var lives = binding.lives.setText(model.lives.value.toString())
 
-            //view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+            if (model.win() || model.lost()==0) {
+                view.findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
+
+            }
+            model.targetWordHidden.observe(
+                viewLifecycleOwner,
+                Observer {
+                    binding.secretWord.text = model.targetWordHidden.value
+
+            })
         }
         return view
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
